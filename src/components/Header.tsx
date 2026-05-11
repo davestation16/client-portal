@@ -4,10 +4,10 @@ import { ArrowRight } from 'lucide-react';
 
 const Header = () => {
   const navItems = [
-    { label: 'Overview', href: '#' },
     { label: 'Work', href: 'https://station16.com/work' },
     { label: 'Services', href: 'https://station16.com/services' },
     { label: 'About', href: 'https://station16.com/about' },
+    { label: 'Contact', href: 'https://station16.com/contact' },
   ];
 
   return (
