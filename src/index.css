@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&family=Syne:wght@500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Cormorant Garamond", serif;
+  --font-ui: "Syne", sans-serif;
+  --font-body: "Lora", serif;
+
+  --color-s16-bg: #fdfcf9;
+  --color-s16-bg-warm: #f4f1ea;
+  --color-s16-bg-surface: #eeebe3;
+  --color-s16-text: #1a1917;
+  --color-s16-text-muted: #7a7570;
+  --color-s16-accent: #f7893d;
+  --color-s16-accent-dark: #e5762b;
+  --color-s16-border: rgba(26, 25, 23, 0.10);
+  
+  --color-s16-dark-bg: #0f0e0c;
+  --color-s16-dark-bg-surface: #191815;
+  --color-s16-dark-text: #f4f1eb;
+  --color-s16-dark-text-muted: #8a8680;
+}
+
+@layer base {
+  body {
+    @apply bg-s16-bg text-s16-text font-body antialiased;
+  }
+  
+  h1, h2, h3, h4 {
+    @apply font-display tracking-tight text-s16-text;
+  }
+}
+
+.s16-container {
+  @apply mx-auto max-w-[1540px] px-[10vw] max-sm:px-6;
+}
+
+.s16-cta {
+  @apply font-ui font-semibold uppercase tracking-[0.1em] text-[0.85rem] inline-flex items-center gap-2 transition-all duration-300;
+}
+
+.s16-cta:hover {
+  @apply opacity-70 gap-3;
+}
+
+.s16-eyebrow {
+  @apply font-ui text-[9px] font-semibold uppercase tracking-[0.22em] text-s16-accent;
+}
+
+::selection {
+  background: #f7893d;
+  color: #fff;
+}
