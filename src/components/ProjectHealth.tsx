@@ -8,57 +8,58 @@ interface ProjectHealthProps {
 
 const ProjectHealth: React.FC<ProjectHealthProps> = ({ progress, delayDays }) => {
   return (
-    <section className="bg-white border border-slate-200 p-6 rounded-lg shadow-sm flex flex-col h-full">
-      <div className="flex items-end justify-between mb-6">
+    <section className="bg-s16-bg-surface p-8 border border-s16-border flex flex-col h-full shadow-sm">
+      <div className="flex items-end justify-between mb-10">
         <div>
-          <h2 className="text-xs font-ui font-black uppercase tracking-[0.2em] text-slate-400 mb-2">Project Velocity</h2>
-          <div className="text-3xl font-display font-bold text-slate-900">{progress}% <span className="text-sm font-ui font-medium text-slate-400 lowercase">complete</span></div>
+          <h2 className="s16-eyebrow text-s16-text-muted mb-2">Project Velocity</h2>
+          <div className="font-display text-5xl text-s16-text">{progress}% <span className="text-xl font-body italic text-s16-text-muted capitalize">complete</span></div>
         </div>
         <div className="text-right">
-          <p className="text-[10px] font-ui font-bold text-rose-500 uppercase tracking-tighter">Total Client Delay</p>
-          <p className="text-xl font-display font-bold">+{delayDays} Days</p>
+          <p className="font-ui text-[9px] font-bold text-s16-accent uppercase tracking-widest">Total Client Delay</p>
+          <p className="font-display text-3xl text-s16-text">+{delayDays} Days</p>
         </div>
       </div>
 
       <div className="flex-1 flex flex-col justify-between py-2">
-        <div className="space-y-4">
-          <div className="relative pt-1">
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-[10px] font-ui font-semibold text-slate-500 uppercase">Current Phase: Production Prep</span>
-              <span className="text-[10px] font-ui font-semibold text-slate-500 uppercase">Phase Completion: 40%</span>
+        <div className="space-y-8">
+          <div>
+            <div className="flex items-center justify-between mb-4">
+              <span className="font-ui text-[10px] font-semibold text-s16-text-muted uppercase tracking-widest">Phase: Production Prep</span>
+              <span className="font-ui text-[10px] font-semibold text-s16-text-muted uppercase tracking-widest">40% done</span>
             </div>
-            <div className="overflow-hidden h-2 text-xs flex rounded-full bg-slate-100">
+            <div className="h-1 w-full bg-s16-border overflow-hidden">
               <motion.div 
                 initial={{ width: 0 }}
                 animate={{ width: `${progress}%` }}
                 transition={{ duration: 1.5, ease: [0.25, 0.1, 0.25, 1] }}
-                className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-black"
+                className="h-full bg-s16-text"
               />
             </div>
           </div>
 
-          <div className="grid grid-cols-4 gap-1">
-            <div className="h-12 bg-slate-900 rounded flex items-center justify-center text-[8px] text-white font-ui font-bold uppercase">Discovery</div>
-            <div className="h-12 bg-slate-900 rounded flex items-center justify-center text-[8px] text-white font-ui font-bold uppercase">Concept</div>
-            <div className="h-12 bg-slate-100 border-2 border-black rounded flex items-center justify-center text-[8px] text-black font-ui font-bold uppercase">Prep</div>
-            <div className="h-12 bg-slate-50 rounded flex items-center justify-center text-[8px] text-slate-300 font-ui font-bold uppercase">Install</div>
+          <div className="grid grid-cols-4 gap-[1px] bg-s16-border border border-s16-border">
+            {['Discovery', 'Concept', 'Prep', 'Install'].map((phase, i) => (
+              <div key={phase} className={`h-16 flex items-center justify-center text-[10px] font-ui font-bold uppercase tracking-widest ${i < 2 ? 'bg-s16-text text-s16-bg' : i === 2 ? 'bg-s16-bg text-s16-text border-2 border-s16-text' : 'bg-s16-bg-warm text-s16-text-muted'}`}>
+                {phase}
+              </div>
+            ))}
           </div>
         </div>
 
-        <div className="mt-8 border-t border-slate-100 pt-4 flex justify-between">
-          <div className="flex gap-4">
+        <div className="mt-8 border-t border-s16-border pt-4 flex justify-between">
+          <div className="flex gap-8">
             <div>
-              <p className="text-[10px] font-ui text-slate-400 font-bold uppercase">Kickoff</p>
-              <p className="text-xs font-ui font-bold">Sep 12</p>
+              <p className="font-ui text-[9px] text-s16-text-muted font-bold uppercase tracking-widest mb-1">Kickoff</p>
+              <p className="font-display text-xl">Sep 12</p>
             </div>
             <div>
-              <p className="text-[10px] font-ui text-slate-400 font-bold uppercase">Projected End</p>
-              <p className="text-xs font-ui font-bold">Nov 30</p>
+              <p className="font-ui text-[9px] text-s16-text-muted font-bold uppercase tracking-widest mb-1">Projected</p>
+              <p className="font-display text-xl">Nov 30</p>
             </div>
           </div>
           <div className="text-right">
-            <p className="text-[10px] font-ui text-slate-400 font-bold uppercase">Status</p>
-            <p className="text-xs font-ui font-bold text-amber-600">At Risk</p>
+            <p className="font-ui text-[9px] text-s16-text-muted font-bold uppercase tracking-widest mb-1">Status</p>
+            <p className="font-display text-xl text-s16-accent italic">At Risk</p>
           </div>
         </div>
       </div>
